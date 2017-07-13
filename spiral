@@ -1,0 +1,13 @@
+import turtle as t
+
+def spiral(n, size):
+	t.resetscreen()
+	angle = 360/n
+	for i in range(n):
+		for j in range(40):
+			t.forward(size)
+			t.right(15)
+
+		t.right(angle)
+
+spiral(70, 10)

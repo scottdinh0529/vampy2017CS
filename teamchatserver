@@ -1,0 +1,37 @@
+import socket
+import time
+phone = socket.socket()
+address = (socket.gethostname(), 8081)
+phone.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+phone.bind(address)
+phone.listen(17)
+while True:
+	try:
+		conn, cid = phone.accept()
+		msg = bytes.decode(conn.recv(1024))
+		conn.send("r".encode("UTF-8"))
+		print("{0}: {1}.".format(cid, msg))
+		
+		#connect to everyone else
+		relay = socket.socket()
+		relay.connect(("vampy-cs-3", 8081))
+		relay.send("cid: "+msg("UTF-8"))
+		relay.close()
+		time.sleep(0.1)
+		
+		relay = socket.socket()
+		relay.connect(("vampy-cs-15", 8081))
+		relay.send("cid: "+msg("UTF-8"))
+		relay.close()
+		time.sleep(0.1)
+		
+		relay = socket.socket()
+		relay.connect(("vampy-cs-11", 8081))
+		relay.send("cid: "+msg("UTF-8"))
+		relay.close()
+		time.sleep(0.1)
+		
+	except KeyboardInterrupt:
+			print("Shutting down...")
+			phone.close()
+			break

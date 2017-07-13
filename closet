@@ -1,0 +1,21 @@
+import random
+id = 0
+hats = ["hat"]
+bottoms = ["pink shorts", "blue shorts", "light blue shirt", "gray shorts"]
+shoes = ["blue nikes", "black nikes"]
+tops = ["blue nike", "hollister gray", "hollister blue", "american eagle"]
+socks = ["nike", "nike", "nike", "Js", "Js"]
+
+pattern = "#{0}: top={1}, bottom={2}, shoes={3}, head={4}, socks={5}"
+for top in tops:
+	for hat in hats::
+		for bottom in bottoms:
+			for kicks in shoes:
+				for pair in socks:
+					if kicks != "none" and pair =="none":
+						continue
+					
+					id += 1
+					print(pattern.format(id, top, bottoms, shoes, socks, haats))
+
+

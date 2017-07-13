@@ -1,0 +1,27 @@
+import random
+import time
+
+names = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+Q = []
+for name in random.sample(names, 3):
+	joining = random.choice(names)
+	Q.append(joining)
+	print("{0} is joining!".format(joining))
+
+hour = 1
+while len(Q) > 0:
+	time.sleep(8)
+	print("It is {0} o' clock, and there are {1} people at the diner!".format(hour, len(Q)))
+	for i in range(random.randint(1, 5)):
+		if len[Q] < 30 and random.uniform(0, 1) < 0.33:
+			joining = random.choice(names)
+			Q.append(joining)
+			print("{0} is joining!".format(joining))
+		elif len(Q) > 0:
+			leaving = Q.pop(0)
+			print("{0} is leaving!".format(leaving))
+	
+	hour += 1
+
+print("Closing shop")

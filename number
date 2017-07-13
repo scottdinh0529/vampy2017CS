@@ -1,0 +1,8 @@
+import random as r
+
+def random():
+	num = r.randint(1, 1000)
+	print (num)
+	random()
+	
+random()

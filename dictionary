@@ -1,0 +1,19 @@
+d = {}
+
+d = {"age":12}
+d["name"] = "Scott"
+
+print(d["age"])
+print(d["name"])
+
+d1 = {"key1":123, "key2":63, "key3":872}
+d2 = {"key4":873, "key5":69, "key6":420}
+
+d1.update(d2)
+print (d1)
+
+sorted_keys = sorted(d1)
+print(sorted_keys)
+
+for key in sorted_keys:
+	print(d1(key1)

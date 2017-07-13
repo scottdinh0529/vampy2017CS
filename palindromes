@@ -1,0 +1,47 @@
+choice = input("What is your number?")
+
+if len(choice) == 1:
+	print ("11")
+	
+elif len(choice) == 2:
+	if choice[0] == choice[1]:
+		print (choice)
+	elif choice[1] > choice[0]:
+		num = int(str(choice)) + 10
+		choice = str(num)
+		print(choice[0] + choice[0])
+	elif choice[0] == "9":
+		print ("99")
+	elif choice[1] < choice[0]:
+		print(choice[0] + choice[0])
+		
+
+elif len(choice) == 3:
+	if choice[0] == choice[2]:
+		print (choice)
+	elif choice[2] > choice[0]:
+		num = int(str(choice)) + 10
+		choice = str(num)
+		print (choice[0] + choice[1] + choice[0])
+	elif choice[2] < choice[0]:
+		print (choice[0] + choice[1] + choice[0])
+		
+elif len(choice) == 4:
+	if choice[0] == choice[3] and choice[1] == choice[2]:
+		print (choice)
+	elif choice [2] < choice[1]:
+		num = int(str(choice)) + 10
+		choice = str(num)
+		print (choice[0] + choice[1] + choice[1] + choice[0])
+	elif choice [1] < choice[2]:
+		num = int(str(choice)) + 100
+		choice = str(num)
+		print (choice[0] + choice[1] + choice[1] + choice[0])
+		
+		
+
+		
+	
+	
+	 	
+	

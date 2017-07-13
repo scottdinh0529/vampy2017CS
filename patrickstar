@@ -1,0 +1,13 @@
+import turtle as t
+
+def star(n, k, size):
+	t.resetscreen()
+	angle = k*360/n
+	for i in range(n):
+		t.forward(size)
+		t.right(angle)
+	
+	if n%2 == 0:
+		for i in range (n):
+			t.forward(size)
+			t.right(angle)

@@ -1,0 +1,16 @@
+import socket
+while True:
+	N = input("Who are you calling? ")
+	msg = input("What is your message? ")
+	data = msg.encode("UTF-8")
+	address = ("vampy-cs-"+N, 8080)
+	phone = socket.socket()
+	try:
+		phone.connect(address)
+		phone.send(data)
+		resp = bytes.decode(phone.recv(1024))
+		if resp != "r":
+			print("Whoops")
+		phone.close()
+	except ConnectionRefusedError:
+		print("They appear to be offline")

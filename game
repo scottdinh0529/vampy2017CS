@@ -1,0 +1,727 @@
+import random
+
+import sys
+
+import os
+
+class Player:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 100;
+
+self.health = self.maxhealth;
+
+self.minpower = 10;
+
+self.maxpower = 15;
+
+self.money = 0;
+
+self.pots = 0;
+
+self.currweapon = 1;
+
+self.weaponname = "Old Sword";
+
+self.score = 0;
+
+self.moneygain = 0;
+
+
+
+class Ogre:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 120;
+
+self.health = self.maxhealth;
+
+self.minpower = 8;
+
+self.maxpower = 12;
+
+self.minmoney = 10;
+
+self.maxmoney = 15;
+
+OgreIG = Ogre("Ogre")
+
+class Elf:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 30;
+
+self.health = self.maxhealth;
+
+self.minpower = 25;
+
+self.maxpower = 50;
+
+self.minmoney = 12;
+
+self.maxmoney = 20;
+
+ElfIG = Elf("Elf")
+
+class Goblin:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 40;
+
+self.health = self.maxhealth;
+
+self.minpower = 20;
+
+self.maxpower = 30;
+
+self.minmoney = 17;
+
+self.maxmoney = 23;
+
+GoblinIG = Goblin("Goblin")
+
+class Small_Slime:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 50;
+
+self.health = self.maxhealth;
+
+self.maxpower = 10;
+
+self.minpower = 5;
+
+self.minmoney = 4;
+
+self.maxmoney = 9;
+
+SlimeIG = Small_Slime("Small Slime")
+
+class Giant:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 150;
+
+self.health = self.maxhealth;
+
+self.maxpower = 10;
+
+self.minpower = 6;
+
+self.minmoney = 16;
+
+self.maxmoney = 20;
+
+GiantIG = Giant("Giant")
+
+class Medium_Slime:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 70;
+
+self.health = self.maxhealth;
+
+self.maxpower = 16;
+
+self.minpower = 13;
+
+self.minmoney = 12;
+
+self.maxmoney = 17;
+
+MSlimeIG = Medium_Slime("Medium Slime")
+
+class Large_Slime:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 100;
+
+self.health = self.maxhealth;
+
+self.maxpower = 18;
+
+self.minpower = 13;
+
+self.minmoney = 15;
+
+self.maxmoney = 20;
+
+LSlimeIG = Large_Slime("Large Slime")
+
+class Zombie:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 70;
+
+self.health = self.maxhealth;
+
+self.maxpower = 18;
+
+self.minpower = 14;
+
+self.minmoney = 13;
+
+self.maxmoney = 17;
+
+ZombieIG = Zombie("Zombie")
+
+class Baby_Dragon:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 80;
+
+self.health = self.maxhealth;
+
+self.maxpower = 25;
+
+self.minpower = 17;
+
+self.minmoney = 22;
+
+self.maxmoney = 30;
+
+BDragonIG = Baby_Dragon("Baby Dragon")
+
+class Human_Adventurer:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 100;
+
+self.health = self.maxhealth;
+
+self.minpower = 10;
+
+self.maxpower = 15;
+
+self.minmoney = 13;
+
+self.maxmoney = 20;
+
+Human_AdventurerIG = Human_Adventurer("Human Adventurer")
+
+class Hydra:
+
+def __init__(self, name):
+
+self.name = name;
+
+self.maxhealth = 75;
+
+self.health = self.maxhealth;
+
+self.minpower = 23;
+
+self.maxpower = 30;
+
+self.minmoney = 27;
+
+self.getmoney = 30;
+
+HydraIG = Hydra("Hydra")
+
+def main():
+
+print(" ")
+
+print ("TOWER OF TRIALS")
+
+print ("1. Start")
+
+print ("2. Exit")
+
+print ("Type 1 or 2 to continue")
+
+mainopt = input("->")
+
+if mainopt == "1":
+
+start()
+
+elif mainopt == "2":
+
+sys.exit()
+
+else:
+
+print ("That is not an option.")
+
+cont = input("Press any key to continue...")
+
+main()
+
+def start():
+
+print (" ")
+
+print ("What is your name?")
+
+option = input("->")
+
+global PlayerIG
+
+PlayerIG = Player(option)
+
+start1()
+
+def start1():
+
+print (" ")
+
+print ("%s, you have taken the challenge of the Tower of Trials." %PlayerIG.name)
+
+print ("You must defeat as many enemies as possible.")
+
+print ("There is a shop to buy upgrades.")
+
+print ("An old sword is your starting weapon.")
+
+cont = input("Press any key to continue...")
+
+start2()
+
+def start2():
+
+print (" ")
+
+print ("Name: %s" %PlayerIG.name)
+
+print ("Health: %s/%s" %(PlayerIG.health, PlayerIG.maxhealth))
+
+print ("Coins: %s" %PlayerIG.money)
+
+print ("Potions: %s" %PlayerIG.pots)
+
+print ("Score: %s" %PlayerIG.score)
+
+print ("Weapon: %s" %PlayerIG.weaponname)
+
+print ("Power: %s to %s" %(PlayerIG.minpower, PlayerIG.maxpower))
+
+print ("1. Go farther into the Tower of Trials")
+
+print ("2. Go to the shop.")
+
+print ("3. Exit.")
+
+start1opt = input("->")
+
+if start1opt == "1":
+
+b4fight()
+
+elif start1opt == "2":
+
+shop()
+
+elif start1opt == "3":
+
+exit2()
+
+else:
+
+print ("That is not an option.")
+
+cont = input("Press any key to continue...")
+
+start1()
+
+def b4fight():
+
+global enemy
+
+enemytype = random.randint(1,11)
+
+if enemytype == 1:
+
+enemy = OgreIG
+
+elif enemytype == 2:
+
+enemy = BDragonIG
+
+elif enemytype == 3:
+
+enemy = SlimeIG
+
+elif enemytype == 4:
+
+enemy = MSlimeIG
+
+elif enemytype == 5:
+
+enemy = LSlimeIG
+
+elif enemytype == 6:
+
+enemy = HydraIG
+
+elif enemytype == 7:
+
+enemy = Human_AdventurerIG
+
+elif enemytype == 8:
+
+enemy = GoblinIG
+
+elif enemytype == 9:
+
+enemy = GiantIG
+
+elif enemytype == 10:
+
+enemy = ElfIG
+
+else:
+
+enemy = ZombieIG
+
+fight()
+
+
+
+def fight():
+
+print (" ")
+
+print ("%s VS %s" %(PlayerIG.name, enemy.name))
+
+print ("%s's Health: %s/%s %s's Health: %s/%s" %(PlayerIG.name, PlayerIG.health,
+
+PlayerIG.maxhealth, enemy.name, enemy.health, enemy.maxhealth))
+
+print ("Potions: %s" %PlayerIG.pots)
+
+print ("1. Attack")
+
+print ("2. Drink Potion")
+
+print ("3. Run")
+
+fightopt = input("->")
+
+if fightopt == "1":
+
+attack()
+
+elif fightopt == "2":
+
+drinkpot()
+
+
+
+elif fightopt == "3":
+
+run()
+
+else:
+
+print ("That is not an option.")
+
+cont = input("Press any key to continue...")
+
+fight()
+
+def attack():
+
+global PlayerAtk
+
+global EnemyAtk
+
+PlayerAtk = random.randint(PlayerIG.minpower, PlayerIG.maxpower)
+
+EnemyAtk = random.randint(enemy.minpower, enemy.maxpower)
+
+enemy.health -= PlayerAtk
+
+print (" ")
+
+print ("You deal %s damage to %s" %(PlayerAtk, enemy.name))
+
+if enemy.health <=0:
+
+win()
+
+else:
+
+pass
+
+PlayerIG.health -= EnemyAtk
+
+print ("%s deals %s damage to you" %(enemy.name, EnemyAtk))
+
+cont = input("Press any key to continue...")
+
+if PlayerIG.health <= 0:
+
+GAME_OVER()
+
+else:
+
+fight()
+
+def shop():
+
+print (" ")
+
+print ("Welcome to the shop. My name is Bob; what would you like to buy?")
+
+print ("You have %s coins." %PlayerIG.money)
+
+print ("1. Health Potion - 12 Coins")
+
+print ("2. Upgrade to Steel Sword - 50 Coins")
+
+print ("3. Upgrade to Gold Sword - 100 Coins")
+
+print ("4. Leave Shop")
+
+shopopt = input("->")
+
+if shopopt == "1":
+
+if PlayerIG.money >= 12:
+
+PlayerIG.money -= 12
+
+PlayerIG.pots += 1
+
+print ("You bought a health potion!")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+else:
+
+print ("You don't have enough coins.")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+elif shopopt == "2":
+
+if PlayerIG.money >= 50 and PlayerIG.currweapon == 1:
+
+PlayerIG.currweapon = 2
+
+PlayerIG.money -= 50
+
+PlayerIG.maxpower = 25
+
+PlayerIG.minpower = 20
+
+PlayerIG.weaponname = "Steel Sword"
+
+print ("You upgraded to a Steel Sword!")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+elif PlayerIG.currweapon == 2:
+
+print ("You already have the Steel Sword")
+
+else:
+
+print ("You don't have enough coins.")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+elif shopopt == "3":
+
+if PlayerIG.money >= 100 and PlayerIG.currweapon <= 2:
+
+PlayerIG.currweapon = 3
+
+PlayerIG.money -= 100
+
+PlayerIG.maxpower = 30
+
+PlayerIG.minpower = 25
+
+PlayerIG.weaponname = "Gold Sword"
+
+print ("You upgraded to the Gold Sword!")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+elif PlayerIG.currweapon == 3:
+
+print ("You already have the Gold Sword")
+
+else:
+
+print ("You don't have enough coins.")
+
+cont = input("Press any key to continue...")
+
+shop()
+
+elif shopopt == "4":
+
+print ("Leaving shop...")
+
+cont = input("Press any key to continue...")
+
+start2()
+
+
+
+def GAME_OVER():
+
+print (" ")
+
+print ("GAME OVER")
+
+print ("Your Score: %s" %PlayerIG.score)
+
+print (" ")
+
+print ("Restart?")
+
+restart = input("Type yes or no to continue.")
+
+if restart == "yes":
+
+main()
+
+elif restart == "no":
+
+quit()
+
+else:
+
+GAME_OVER()
+
+def win():
+
+enemy.health = enemy.maxhealth
+
+PlayerIG.moneygain += random.randint(enemy.minmoney, enemy.maxmoney)
+
+PlayerIG.money += PlayerIG.moneygain
+
+PlayerIG.score += 1
+
+print (" ")
+
+print ("You have defeated %s!" %enemy.name)
+
+print ("You have found %s coins" %PlayerIG.moneygain)
+
+print ("Score: %s" %PlayerIG.score)
+
+cont = input("Press any key to continue...")
+
+PlayerIG.moneygain = 0
+
+start2()
+
+def drinkpot():
+
+print (" ")
+
+if PlayerIG.pots == 0:
+
+print ("You don't have any potions.")
+
+cont = input("Press any key to continue...")
+
+fight()
+
+else:
+
+PlayerIG.health += 100
+
+PlayerIG.pots -= 1
+
+if PlayerIG.health > PlayerIG.maxhealth:
+
+PlayerIG.health = PlayerIG.maxhealth
+
+print ("You drank a potion!")
+
+cont = input("Press any key to continue...")
+
+fight()
+
+def run():
+
+print (" ")
+
+chance = random.randint (1,2)
+
+if chance == 1:
+
+print ("You have escaped!")
+
+cont = input("Press any key to continue...")
+
+start2()
+
+else:
+
+EnemyAtk = random.randint(1, enemy.maxpower)
+
+print ("You could not get away!")
+
+cont = input("Press any key to continue...")
+
+PlayerIG.health -= EnemyAtk
+
+print ("%s deals %s damage to you" %(enemy.name, EnemyAtk))
+
+if PlayerIG.health <= 0:
+
+GAME_OVER()
+
+else:
+
+fight()
+
+def exit2():
+
+quit()
+
+
+
+main()

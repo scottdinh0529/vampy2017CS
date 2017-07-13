@@ -1,0 +1,32 @@
+connections = {}
+connections["Joj"] = []
+connections["Emily"] = ["Joj", "Jeph", "Jeff"]
+connections["Jeph"] = ["Joj", "Geoff"]
+connections["Jeff"] = ["Joj", "Judge"]
+connections["Geoff"] = ["Joj", "Jebb"]
+connections["Jebb"] = ["Joj", "Emily"]
+connections["Judge"] = ["Joj", "Judy"]
+connections["Jodge"] = ["Joj", "Jebb", "Stephen", "Judy"]
+connections["Judy"] = ["Joj", "Judge"]
+connections["Stephen"] = ["Joj", "Jodge"]
+
+names = ["Joj", "Jodge", "Jebb", "Stephen", "Judy", "Emily", "Geoff", "Judge", "Jeff", "Jeph"]
+
+candidate = names[0]
+for i in range(1, len(names)):
+	if names[i] in connections[candidate]:
+		candidate = names[i]
+
+print("Our best candidate is {0}".format(candidate))
+print("Verifying candidate...")
+
+for name in names:
+	if name != candidate
+		if name in connections[candidate]:
+			print("That is not the candidate; they know somebody")
+			exit()
+		elif candidate not in connections(name):
+			print("That is not the candidate; they are not known by somebody!")
+			exit()
+
+print("The celebrity is the real deal")

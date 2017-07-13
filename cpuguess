@@ -1,0 +1,32 @@
+import os
+
+lower = 0
+upper = 0
+guess = 1
+ans = ""
+
+while ans != "YEET":
+	ans = input("Is "+str(guess)+" equal to, greater than, or less than your number? (correct, more, less)")
+	if ans == "more":
+		if upper == 0:
+			guess *= 2
+			os.system("clear")
+		else:
+			lower = guess
+			guess = int((lower + upper)/2)
+			os.system("clear")
+
+	elif ans == "less":
+		if upper == 0:
+			lower = int(guess / 2)
+			os.system("clear")
+
+		upper = guess
+		guess = int((lower + upper)/2)
+		os.system("clear")
+	
+	elif ans == "correct":
+		print ("Your number is "+str(guess))
+		os.system("clear")
+
+
